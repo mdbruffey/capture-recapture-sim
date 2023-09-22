@@ -3,19 +3,55 @@
 <head lang='en'>
 	<meta charset='utf-8'>
 	<meta name='viewport' content='width=device-width'>
-	<title>rollup-starter-app</title>
-
-	<style>
-		body {
-			font-family: 'Helvetica Neue', Arial, sans-serif;
-			color: #333;
-			font-weight: 300;
-		}
-	</style>
+	<link href="style.css" rel="stylesheet">
+	<title>Capture-Mark-Recapture</title>
 </head>
-<body>
-	<h1>rollup-starter-app</h1>
-	<p>The time is <span id='time-now'>...</span></p>
+<body>	
+	<div class="title">Capture-Mark-Recapture Simulator</div>
+	<div class="menu">
+		<button id="single-button">Single Sample</button>
+		<button id="avg-button">Averaged Samples</button>
+	</div>
+	<div id="tabs">
+		<div class="tab active" id="singleSample">
+			<div class="form">
+				<div class="input">
+					<label for="numPop">Population Size</label><br>
+					<input type="number" id="numPop" value="50" required>
+				</div>
+				<div class="input">
+					<label for="numSamples">Number to Capture/Mark</label><br>
+					<input type="number" id="numSamples" value="15" required>
+				</div>
+				<div class="input">
+					<label for="numRecapture">Number to Recapture</label><br>
+					<input type="number" id="numRecapture" value="15" required>
+				</div>
+				<button class="simulate" id="simulateSingleSample">Simulate</button>
+			</div>
+			<div class="output-div">
+				<div>Output:</div>
+				<div class="output" id="singleSampleOutput"></div>
+			</div>
+		</div>
+		<div class="inactive tab" id="averagedSamples">
+			<div class="form">
+				<label for="numPopA">Population Size</label>
+				<input type="number" id="numPopA" value="1000" required>
+				<label for="numSamplesA">Number to Capture/Mark</label>
+				<input type="number" id="numSamplesA" value="200" required>
+				<label for="variance">Recapture count variance</label>
+				<input type="number" id="variance" value="20" required>
+				<label for="trials">Number of Trials</label>
+				<input type="number" id="trials" value="10" required>
+				<button class="simulate" id="simulateAverageSamples">Simulate</button>
+			</div>
+			<div class="output-div">
+				<div>Output:</div>
+				<div class="output" id="averagedSamplesOutput"></div>
+			</div>
+		</div>
+	</div>
 	<script src='bundle.js'></script>
 </body>
 </html>
